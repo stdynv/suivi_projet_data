@@ -15,9 +15,6 @@ headers = {'User-Agent': 'Mozilla/5.0'}
 
 
 
-"""html = rq.get(url,headers=headers)
-soup = BeautifulSoup(html.content,'html.parser')"""
-
 
 
 # get flatforms 
