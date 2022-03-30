@@ -1,33 +1,59 @@
-import time
-from selenium import webdriver 
-from selenium.webdriver.common.keys import Keys
+from click import get_text_stream
+import requests
+from bs4 import BeautifulSoup
+from lxml import etree
 import pandas as pd
 
+
 data = {
-    'Name' : [],
-    'Platform' : [],
-    'Year' : [],
-    'Review' : []
-}
+        'Nom Ecole' : [],
+        'Niveau' : [],
+        'Type' : [],
+        'Contact' : [],
+        'adresse' : []
+        
 
-#browser = webdriver.Chrome('chemin_vers_votre_chrome_driver')
-browser = webdriver.Chrome('C:\\Users\\Yassine\\Documents\\Python_Projects\\Beginner\\basics\\chromedriver.exe')
-browser.get('https://www.education.gouv.fr/annuaire?keywords=&department=&academy=1&status=All&establishment=All&geo_point=&page=0')
-time.sleep(3)
-# nom ecole 
+    }
+def get_text(element):
+    col = []
+    for i in element:
+        col.append(i.text)
+    return col
 
-button = browser.find_element_by_xpath('//*[@id="block-edugouv-theme-content"]/div/div[1]/div[2]/div[2]/div[2]/div/a')
-button.click()
+# A function that ties it all together
+def page_df(url):
+    html = requests.get(url).content
+    soup = BeautifulSoup(html,'html.parser')
+    dom = etree.HTML(str(soup))
+    titles = get_text(dom.xpath('//div[@class="establishment--search_item__content"]/h2'))
+    print(titles)
+    niveau_études = get_text(soup.find_all("span", {"class": "establishment-high-school establishment-type"}))
+    try :
+        type_ecole = get_text(soup.find_all("span", {"class": "establishment-public"}))
+    except :
+        type_ecole.append('NaN')
+    print(type_ecole)
+    adresse_ecole = get_text(dom.xpath('//div[@class="establishment--search_item__address"]/p[2]'))
+    # mail_ecole = get_text(dom.xpath('//div[@class="establishment--search_item__address"]/p[last()]/a'))
+    contact_ecole = get_text(soup.select('.establishment--search_item__address > p:last-child'))
 
+    data['Nom Ecole'].extend(titles)
+    data['Niveau'].extend(niveau_études)
+    data['Type'].extend(type_ecole)
+    data['adresse'].extend(adresse_ecole)
+    data['Contact'].extend(contact_ecole)
+    print(len(titles))
+    print(len(niveau_études))
+    print(len(type_ecole))
+    print(len(adresse_ecole))
+    print(len(contact_ecole))
+    
+"""for p in range(0,2) :
+    print(f'page {p}')
+    url = f'https://www.education.gouv.fr/annuaire?keywords=&department=&academy=1&status=All&establishment=All&geo_point=&page={p}'
+    page_df(url)"""
 
-"""nom_ecole_html = browser.find_elements_by_xpath('//*[@class="establishment--search_item__content"]/h2')
-list_nom_ecole = [x.text for x in nom_ecole_html]
-cordonnées_ecole_html = browser.find_elements_by_xpath('//div[@class="establishment--search_item__address"]/p[2]')
-list_cordonnées_ecole = [x.text for x in cordonnées_ecole_html]
-email_ecole_html = browser.find_elements_by_xpath('//div[@class="establishment--search_item__address"]/p[last()]/a')
-list_email_ecole = [x.text for x in email_ecole_html]
-tel_ecole_html = browser.find_elements_by_xpath('//div[@class="establishment--search_item__address"]/p[last()]/following-sibling::text()')
-list_tel_ecole = [x.text for x in tel_ecole_html]
-# //*[@id="block-edugouv-theme-content"]/div/div[1]/div[2]/div[2]/div[1]/div/div[2]/div[3]/div[1]/p[4]/text()
-print(list_tel_ecole)"""
-browser.close()
+url = f'https://www.education.gouv.fr/annuaire?keywords=&department=&academy=1&status=All&establishment=All&geo_point=&page={1}'
+page_df(url)
+"""df = pd.DataFrame(data)
+df.to_csv('Ecoles.csv')"""
