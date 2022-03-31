@@ -1,4 +1,3 @@
-from click import get_text_stream
 import requests
 from bs4 import BeautifulSoup
 from lxml import etree
@@ -9,51 +8,43 @@ data = {
         'Nom Ecole' : [],
         'Niveau' : [],
         'Type' : [],
-        'Contact' : [],
-        'adresse' : []
-        
-
+        'Tel' : [],
+        'Email' : []
     }
+# function to return text element 
 def get_text(element):
     col = []
     for i in element:
-        col.append(i.text)
+        col.append(i.text.strip())
     return col
 
-# A function that ties it all together
+# A function that scrap all elements of a page 
 def page_df(url):
     html = requests.get(url).content
     soup = BeautifulSoup(html,'html.parser')
-    dom = etree.HTML(str(soup))
-    titles = get_text(dom.xpath('//div[@class="establishment--search_item__content"]/h2'))
-    print(titles)
-    niveau_études = get_text(soup.find_all("span", {"class": "establishment-high-school establishment-type"}))
-    try :
-        type_ecole = get_text(soup.find_all("span", {"class": "establishment-public"}))
-    except :
-        type_ecole.append('NaN')
-    print(type_ecole)
-    adresse_ecole = get_text(dom.xpath('//div[@class="establishment--search_item__address"]/p[2]'))
-    # mail_ecole = get_text(dom.xpath('//div[@class="establishment--search_item__address"]/p[last()]/a'))
-    contact_ecole = get_text(soup.select('.establishment--search_item__address > p:last-child'))
+    parent_div = soup.select(".post-block")
+    for child in parent_div : 
+        
+        nom_etab = child.select_one('.establishment--search_item__content > h2')
+        data['Nom Ecole'].extend(get_text(nom_etab)) if nom_etab else data['Nom Ecole'].append('Not Found')
+        
+        niveau = child.find("span", {"class": "establishment-high-school establishment-type"})
+        data['Niveau'].extend(get_text(niveau)) if niveau else data['Niveau'].append('Not Found')
+        
+        type_etab = child.select_one('.establishment-public')
+        data['Type'].extend(get_text(type_etab)) if type_etab else data['Type'].append('Not Found')
+        
+        tel_etab = child.select_one('.establishment--search_item__contact > a')
+        data['Tel'].append(tel_etab['href'][4:]) if tel_etab else data['Tel'].append('Not Found')
 
-    data['Nom Ecole'].extend(titles)
-    data['Niveau'].extend(niveau_études)
-    data['Type'].extend(type_ecole)
-    data['adresse'].extend(adresse_ecole)
-    data['Contact'].extend(contact_ecole)
-    print(len(titles))
-    print(len(niveau_études))
-    print(len(type_ecole))
-    print(len(adresse_ecole))
-    print(len(contact_ecole))
-    
-"""for p in range(0,2) :
-    print(f'page {p}')
+        email_etab = child.select_one('.establishment--search_item__address > p:last-child > a')
+        data['Email'].append(email_etab.text) if email_etab else data['Email'].append('Not Found')
+
+        
+# scrap 30 pages
+for p in range(0,30) :
     url = f'https://www.education.gouv.fr/annuaire?keywords=&department=&academy=1&status=All&establishment=All&geo_point=&page={p}'
-    page_df(url)"""
-
-url = f'https://www.education.gouv.fr/annuaire?keywords=&department=&academy=1&status=All&establishment=All&geo_point=&page={1}'
-page_df(url)
-"""df = pd.DataFrame(data)
-df.to_csv('Ecoles.csv')"""
+    page_df(url)
+    
+df = pd.DataFrame(data)
+df.to_csv('liste_des_ecoles.csv')
