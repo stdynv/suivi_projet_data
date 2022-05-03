@@ -8,36 +8,9 @@
 <h1 align="center">Video Games Sales</h1>
 <br />
 <div align="center">
-  <!-- Stability -->
-  <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
-    <img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square"
-      alt="API stability" />
-  </a>
-  <!-- NPM version -->
-  <a href="https://npmjs.org/package/choo">
-    <img src="https://img.shields.io/npm/v/choo.svg?style=flat-square"
-      alt="NPM version" />
-  </a>
-  <!-- Build Status -->
-  <a href="https://travis-ci.org/choojs/choo">
-    <img src="https://img.shields.io/travis/choojs/choo/master.svg?style=flat-square"
-      alt="Build Status" />
-  </a>
-  <!-- Test Coverage -->
-  <a href="https://codecov.io/github/choojs/choo">
-    <img src="https://img.shields.io/codecov/c/github/choojs/choo/master.svg?style=flat-square"
-      alt="Test Coverage" />
-  </a>
-  <!-- Downloads -->
-  <a href="https://npmjs.org/package/choo">
-    <img src="https://img.shields.io/npm/dt/choo.svg?style=flat-square"
-      alt="Download" />
-  </a>
-  <!-- Standard -->
-  <a href="https://standardjs.com">
-    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
-      alt="Standard" />
-  </a>
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/stdynv/suivi_projet_data?style=for-the-badge">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/stdynv/suivi_projet_data?style=for-the-badge">
+  <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/w/stdynv/suivi_projet_data/main?style=for-the-badge">
 </div>
 
 <div align="center">
