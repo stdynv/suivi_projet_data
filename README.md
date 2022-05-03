@@ -1,10 +1,11 @@
-<h1 align="center">Choo</h1>
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80">
 <div align="center">
   <strong>Data Analysis Project</strong>
 </div>
-<div align="center">
-  :signal_strength::chart_with_downwards_trend::bar_chart::chart_with_upwards_trend:
+<div align="center" style="size:20px">
+  :chart_with_downwards_trend::bar_chart::chart_with_upwards_trend:
 </div>
+<h1 align="center">Video Games Sales</h1>
 <br />
 <div align="center">
   <!-- Stability -->
@@ -40,43 +41,7 @@
 </div>
 
 <div align="center">
-  <h3>
-    <a href="https://choo.io">
-      Website
-    </a>
-    <span> | </span>
-    <a href="https://github.com/choojs/choo-handbook">
-      Handbook
-    </a>
-    <span> | </span>
-    <a href="https://github.com/YerkoPalma/awesome-choo">
-      Ecosystem
-    </a>
-    <span> | </span>
-    <!-- <a href="https://github.com/trainyard/choo-cli"> -->
-    <!--   CLI -->
-    <!-- </a> -->
-    <!-- <span> | </span> -->
-    <a href="https://github.com/choojs/choo/blob/master/.github/CONTRIBUTING.md">
-      Contributing
-    </a>
-    <span> | </span>
-    <a href="https://www.reddit.com/r/choojs/">
-      Reddit
-    </a>
-    <span> | </span>
-    <a href="https://webchat.freenode.net/?channels=choo">
-      Chat
-    </a>
-  </h3>
-</div>
-
-<div align="center">
-  <sub>The little framework that could. Built with ❤︎ by
-  <a href="https://twitter.com/yoshuawuyts">Yoshua Wuyts</a> and
-  <a href="https://github.com/choojs/choo/graphs/contributors">
-    contributors
-  </a>
+  <sub> Analyser le marché des jeux vidéos au fil de la période 1994-2021
 </div>
 
 ## Table of Contents
@@ -94,3 +59,5 @@
 - [Installation](#installation)
 - [See Also](#see-also)
 - [Support](#support)
+
+### Features
