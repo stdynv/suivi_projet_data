@@ -11,6 +11,7 @@
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/stdynv/suivi_projet_data?style=for-the-badge">
   <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/stdynv/suivi_projet_data?style=for-the-badge">
   <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/w/stdynv/suivi_projet_data/main?style=for-the-badge">
+  <img alt="GitHub" src="https://img.shields.io/github/license/stdynv/suivi_projet_data?style=for-the-badge">
 </div>
 
 <div align="center">
@@ -18,19 +19,20 @@
 </div>
 
 ## Table of Contents
-- [Features](#features)
-- [Example](#example)
-- [Philosophy](#philosophy)
-- [Events](#events)
-- [State](#state)
-- [Routing](#routing)
-- [Server Rendering](#server-rendering)
-- [Components](#components)
-- [Optimizations](#optimizations)
-- [FAQ](#faq)
-- [API](#api)
-- [Installation](#installation)
-- [See Also](#see-also)
-- [Support](#support)
+- [Description](#description)
+- [Equipe](#equipe)
+- [Technologies](#technologies)
+- [Dataset](#dataset)
+- [Analyse](#analyse)
+  - [Descriptive](#descriptive)
+  - [Exploratoire](#exploration)
+  - [Prédective](#prédective)
+### Description
+### Equipe
+### Technologies
+### Dataset
 
-### Features
+### Analyse
+  #### Descriptive
+  #### Exploration
+  #### Prédective
