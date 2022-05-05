@@ -19,20 +19,45 @@
 </div>
 
 ## Table of Contents
-- [Description](#description)
-- [Equipe](#equipe)
-- [Technologies](#technologies)
-- [Dataset](#dataset)
-- [Analyse](#analyse)
-  - [Descriptive](#descriptive)
-  - [Exploratoire](#exploration)
-  - [Prédective](#prédective)
-### Description
-### Equipe
-### Technologies
+- [Description du Projet](#description-du-projet)
+  - [Collaborateurs](#collaborateurs)
+  - [Technologies Utilisées](#technologies-utilisées)
+  - [Dataset](#dataset)
+- [Analyse Statistiques](#analyse-statistiques)
+  - [Analyse Descriptive](#analyse-descriptive)
+  - [Exploration de données](#exploration-de-données)
+  - [Analyse Prédective](#analyse-prédective)
+- [Machine Learning](#machine-learning)
+### Description du projet
+  ![video-games-rise](https://user-images.githubusercontent.com/78117993/166926993-b8f26bd6-588c-4371-b5d5-7b9995f9da27.jpg)
+  - le chiffre d’affaire de l’industrie des jeux vidéos à atteint $165B en 2020 
+  - les jeux vidéos sur le mobile en 2020 génère plus que le double des revenue sur des PCs et des consoles ce qui explique l'accessibilité des jeux pour les        utilisateurs 
+- le marché des jeux vidéo va atteindre $200B et 3B d’utilisateurs en 2023
 ### Dataset
+  - le jeu de données contient plus 100.000 données de jeux et keurs revenues en ce basant par les platforms , genres années ... 
 
-### Analyse
-  #### Descriptive
-  #### Exploration
-  #### Prédective
+
+| Fields          | Description                                |
+| :--------       |:-------------------------                  |
+| `Rank`          |Classement des jeux videos                  |
+| `Name`          |Nom du jeu                                  |
+| `Platform`      |Plate-forme de sortie du jeu                |
+| `Year`          |Année de sortie du jeu                      |
+| `Genre`         |Genre du jeu                                |
+| `Publisher`     |Editeur du jeu                              |
+| `NA Sales`      |Ventes en Amérique du Nord (en millions)    |              
+| `EU Sales`      |Ventes en Europe (en millions)              |
+| `JP Sales`      |Ventes en Japon (en millions)               |
+| `Other Sales`   |Ventes dans le reste du monde (en millions) |
+| `Global Sales`  |Ventes dans le monde entier (en millions)   |
+
+[Get Data](https://www.kaggle.com/datasets/gregorut/videogamesales)
+
+### Collaborateurs
+### Technologies Utilisées
+
+### Analyse Statistiques
+  #### Analyse Descriptive
+  #### Exploration de données
+  #### Analyse Prédective
+### Machine Learning
