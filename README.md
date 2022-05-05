@@ -20,7 +20,7 @@
 
 ## Table of Contents
 - [Description du Projet](#description-du-projet)
-  - [Collaborateurs](#collaborateurs)
+  - [Contributeurs](#contributeurs)
   - [Technologies Utilisées](#technologies-utilisées)
   - [Dataset](#dataset)
 - [Analyse Statistiques](#analyse-statistiques)
@@ -53,7 +53,13 @@
 
 [Get Data](https://www.kaggle.com/datasets/gregorut/videogamesales)
 
-### Collaborateurs
+### Contributeurs
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/stdynv"><img src="https://avatars.githubusercontent.com/u/78117993?s=400&u=305e97e37db3124de830f504aa0282434ed9e77e&v=4" width="100px;" alt=""/><br /><sub><b>Mohamed Yassine Essamadi</b></sub></a><br /><a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="https://github.com/stdynv" title="Documentation">📖</a> <a href="https://github.com/stdynv" title="Reviewed Pull Requests">👀</a> <a href="#talk-kentcdodds" title="Talks">📢</a></td>
+    <td align="center"><a href="https://github.com/DiogoA78"><img src="https://avatars.githubusercontent.com/u/93249422?v=4" width="100px;" alt=""/><br /><sub><b>Diogo Almeida </b></sub></a><br /><a href="https://github.com/DiogoA78" title="Documentation">📖</a> <a href="https://github.com/DiogoA78" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/DiogoA78" title="Tools">🔧</a></td>
+  </tr>
+</table>
 ### Technologies Utilisées
 
 ### Analyse Statistiques
