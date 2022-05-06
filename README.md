@@ -63,7 +63,92 @@
 ### Technologies Utilisées
 
 ### Analyse Statistiques
-  #### Analyse Descriptive
-  #### Exploration de données
-  #### Analyse Prédective
+  - notre problématique est de suivre l'évolution du marché des jeux vidéos au courd de l'année 1994 et 2021 
+  ### Analyse Descriptive
+  #### Nombre de jeux vendus par Plateforme
+  ![image](https://user-images.githubusercontent.com/78117993/167117747-cc4d99a2-9c04-4968-8aae-5d913e561117.png)
+  - la majorité des jeux sont joué en PS2 
+  - la PS2 est la platforme la plus jouable vu qu'elle a réaliser 1.2 billion de dollars
+  #### Combien de Jeux sont sortis par année et qui est l'éditeur qui vent le plus
+  ```
+  plt.figure(figsize=(30, 15))
+  g = sns.barplot(x='Year', y='Count', data=top_publisher_count)
+  index = 0
+  for value in top_publisher_count['Count'].values:
+     g.text(index, value + 5, str(publisher[index] + '----' +str(value)), color='#000', size=14, rotation= 90, ha="center")
+     index += 1
+  plt.xticks(rotation=90)
+  plt.show()
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167119436-491fd90c-8493-4162-b4e0-4cd6cd77cbab.png)
+  - ce graphique nous expliquent combien de jeux sont sortie par année et aussi l'éditeur qui réalise le plus des ventes
+  - on regarde une augmentation des ventes entre 1980 et 2009 et une baisse de vente entre 2010 et 2020 ce qui confus le marché des jeux vidéos qui est a $169B       ce qui explique que les ventes calculé sont sur des ventes physiques et non pas numériques
+  #### La Moyenne Des Ventes Par Region
+  ```
+  north_amera_sales = df['NA_Sales'].mean() * 1000000
+  europe_sales = df['EU_Sales'].mean() * 1000000
+  japon_sales = df['JP_Sales'].mean() * 1000000
+  other_sales = df['Other_Sales'].mean() * 1000000
+
+  columns = ['North America','Europe','Japon','Other']
+  values = [north_amera_sales,europe_sales,japon_sales,other_sales]
+  plt.figure(figsize=(10,5))
+  plt.title('La Moyenne des vente Par Region')
+  plt.xlabel('Region')
+  plt.bar(columns,values)
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167122361-1e5040fe-0d95-466e-bb49-d7983003e782.png)
+  - L'Amérique du Nord a les ventes moyennes les plus élevées de 264 667,430 $ 
+  #### les jeux qui réalisent actuellement le plus de ventes dans le monde ?
+  ```
+  top = pd.DataFrame(df.groupby("Name")[["Global_Sales"]].sum().sort_values(by=['Global_Sales'],ascending=False).reset_index())
+  top_10 = pd.DataFrame(top.head(10))
+  ax = sns.barplot(x='Global_Sales', y='Name', data=top_10)
+  ax.set_title('Les Meilleurs Jeux Globalement')
+  ax.set_xlabel('Global Sales')
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167123197-72deff0d-4aff-436b-bd36-0d3717b0f4dd.png)
+  - Wii Sports est le jeu qui réalise le plus de vente dans le monde une revenue plus de $80 millions
+  #### Les Meilleurs Jeux Par Region 
+  ```
+  region_JP = pd.DataFrame(df.groupby('Name')[['JP_Sales']].mean().sort_values(by=['JP_Sales'],ascending=False).reset_index())
+  region_NA = pd.DataFrame(df.groupby('Name')[['NA_Sales']].mean().sort_values(by=['NA_Sales'],ascending=False).reset_index())
+  region_EU = pd.DataFrame(df.groupby('Name')[['EU_Sales']].mean().sort_values(by=['EU_Sales'],ascending=False).reset_index())
+  region_OTH = pd.DataFrame(df.groupby('Name')[['Other_Sales']].mean().sort_values(by=['Other_Sales'],ascending=False).reset_index())
+  ax = sns.barplot(x='RegionName_Sales', y='Name', data=region_Name[:5])
+  ax.set_title('Les Meilleurs Jeux en Region Name')
+  ax.set_xlabel('Jeux')
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167123967-970b2076-2631-49ef-aff8-9c2936bd7e19.png)
+  ![image](https://user-images.githubusercontent.com/78117993/167124001-781922a8-92ed-41da-9112-b549e62d3fb3.png)
+  ![image](https://user-images.githubusercontent.com/78117993/167124076-2f1ebce6-1e7b-4574-bcf1-90b6a628916a.png)
+  ![image](https://user-images.githubusercontent.com/78117993/167124106-623838af-b49f-42fd-87dc-627358370198.png)
+  - Pokemon Red/Pokemon Blue est le jeux préféré au Japon
+  - Wii Sports est le jeux préféré en Amérique du Nord , Europe et le Reste du Monde
+  #### Les Genres qui réalisent les plus de ventes 
+  ```
+  genre_df = df.groupby("Genre")[["Global_Sales"]].sum().sort_values(by=['Global_Sales'],ascending=[False]).reset_index()
+  fig , ax = plt.subplots(figsize=(14,6))
+  ax = sns.barplot(x='Genre', y='Global_Sales', data=genre_df)
+  ax.set_ylabel('Global Sales in Millions ')
+  ax.set_title('Top genres')
+  ax.set_xlabel('Genre')
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167124547-ac5b743b-8d1a-40b6-a1c7-57877b5ed899.png)
+  - Les jeux d'action sont les plus appréciés dans le monde avec un total presque de 1750 millions de dollars.
+  
+  #### Les éditeurs qui ont réaliser le plus de ventes en Monde
+  ```
+  publisher_glb =df.groupby('Publisher')[['Publisher','Global_Sales']].sum().sort_values('Global_Sales', ascending = False).head(20)
+
+  publisher_glb['Global_Sales'].plot(kind = 'bar', 
+                            figsize = (11,6), 
+                            colormap = 'Set3', 
+                            ylabel = 'Global Sales (Millions)', 
+                            title = 'Global Video Games Sales by Publisher')
+  ```
+  ![image](https://user-images.githubusercontent.com/78117993/167125038-c9454d46-1a7d-4ad8-93d6-43683f6cc47e.png)
+  - Nintendo est le top éditeur au monde qui réalise un total de 1.75 Billions de dollars
+  ### Exploration de données
+  ### Analyse Prédective
 ### Machine Learning
