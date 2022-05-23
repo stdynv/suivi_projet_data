@@ -376,5 +376,4 @@ x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.20,random_sta
   ![image](https://user-images.githubusercontent.com/78117993/169818381-0caa39c5-c968-43b5-bad7-687ad431b87c.png)
 
 
-
  
