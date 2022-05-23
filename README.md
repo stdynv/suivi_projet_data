@@ -24,8 +24,7 @@
   - [Technologies Utilisées](#technologies-utilisées)
   - [Dataset](#dataset)
 - [Analyse Statistiques](#analyse-statistiques)
-  - [Analyse Descriptive](#analyse-descriptive)
-  - [Exploration de données](#exploration-de-données)
+  - [Exploration de Données](#exploration-données)
   - [Analyse Prédective](#analyse-prédective)
 - [Machine Learning](#machine-learning)
 ### Description du projet
@@ -64,7 +63,7 @@
 
 ### Analyse Statistiques
   - notre problématique est de suivre l'évolution du marché des jeux vidéos au courd de l'année 1994 et 2021 
-  ### Analyse Descriptive
+  ### Exploration Données
   #### Nombre de jeux vendus par Plateforme
   ![image](https://user-images.githubusercontent.com/78117993/167117747-cc4d99a2-9c04-4968-8aae-5d913e561117.png)
   - la majorité des jeux sont joué en PS2 
@@ -149,6 +148,46 @@
   ```
   ![image](https://user-images.githubusercontent.com/78117993/167125038-c9454d46-1a7d-4ad8-93d6-43683f6cc47e.png)
   - Nintendo est le top éditeur au monde qui réalise un total de 1.75 Billions de dollars
-  ### Exploration de données
   ### Analyse Prédective
+  - Implementer des modèles de machine learning (Linear Regression - Dicision Tree Classifier - Random Forest Classifier )
+  - Définir L'algorithme le plus puissant en evaluant chaque modèle 
 ### Machine Learning
+ - Première étape est de séparer notre jeu de données  entre des données d'entrainement(tain) pour entrainer nos données sur le modèle préciser et des données de test pour évaluer notre modèle
+ ```
+ from sklearn.model_selection import train_test_split
+x = df.drop(labels=['Rank','Year','Name','Platform','Genre','Publisher' ,'Global_Sales'],axis=1)
+y = df['Global_Sales']
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size = 0.20,random_state = 42)
+ ```
+- Implementer Les modèles 
+  - Regression Linéaire
+  ```
+  from sklearn.linear_model import LinearRegression
+  LR = LinearRegression()
+  model = LR.fit(x_train,y_train)
+  y_predict = model.predict(x_test)
+  ```
+  - Decision Tree Regressor
+  ```
+  from sklearn.tree import DecisionTreeRegressor
+  regressor_Tree = DecisionTreeRegressor()
+  regressor_Tree.fit(x_train,y_train)
+  y_pred = regressor_Tree.predict(x_test)
+  ```
+    - Random Forest Regressor
+  ```
+  from sklearn.ensemble import RandomForestRegressor
+  regressor_Forest = RandomForestRegressor(random_state=42)
+  regressor_Forest.fit(x_train,y_train)
+  y_pred = regressor_Forest.predict(x_test)
+  ```
+- Evaluer Les modèles 
+  ![image](https://user-images.githubusercontent.com/78117993/169816757-1a891aba-67c9-4e73-a33b-5f6c55ee52f4.png)
+  - La Regression lineaire est l'algorithme le plus puissant avec un score de 99%
+- Camparaison des Valeurs 
+  - ce graph visualise les données coorectes dans notre jeu de données en rouge et les données prédite avec notre modèle
+  - en  camparant le y_predict et le y_test les valeurs sont un peu près les mêmes . 
+  ![image](https://user-images.githubusercontent.com/78117993/169818381-0caa39c5-c968-43b5-bad7-687ad431b87c.png)
+
+
+ 
