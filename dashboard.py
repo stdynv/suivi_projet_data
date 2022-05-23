@@ -110,17 +110,20 @@ with col2:
     st.image("data:image/png;base64,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", width = 350, caption="Nintendo, éditeur ayant été vendu le plus de jeux")
 
 
-#Sales_Continent
-st.header("Sales by Continent")
+#Sales_Location
+st.header("Sales by Location")
 
 df_country_sales = df[["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"]].sum()
-df_country_sales = pd.DataFrame(data = df_country_sales, columns=['Continent'])
-df_country_sales = pd.DataFrame(data = df_country_sales["Continent"], columns=['Continent', "Sales"])
-df_country_sales['Sales'] = df_country_sales["Continent"]
-df_country_sales['Continent'] = df_country_sales.index
+df_country_sales = pd.DataFrame(data = df_country_sales, columns=['Location'])
+df_country_sales = pd.DataFrame(data = df_country_sales["Location"], columns=['Location', "Sales"])
+df_country_sales['Sales'] = df_country_sales["Location"]
+df_country_sales['Location'] = df_country_sales.index
 
+country_sales = st.multiselect("Location Sales", df_country_sales['Location'], default=df_country_sales['Location'].head(20))
 
-essai = alt.Chart(df_country_sales).mark_bar().encode(x="Continent", y=alt.Y("Sales",sort=alt.EncodingSortField(field="Continent", order="descending")), color='Continent')
+plot_country_sales = df_country_sales[df_country_sales.Location.isin(country_sales)]
+
+essai = alt.Chart(plot_country_sales).mark_bar().encode(x="Location", y=alt.Y("Sales",sort=alt.EncodingSortField(field="Location", order="descending")), color='Location')
 
 st.altair_chart(essai, use_container_width=True)
 
