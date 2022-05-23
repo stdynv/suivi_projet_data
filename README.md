@@ -24,8 +24,7 @@
   - [Technologies Utilisées](#technologies-utilisées)
   - [Dataset](#dataset)
 - [Analyse Statistiques](#analyse-statistiques)
-  - [Analyse Descriptive](#analyse-descriptive)
-  - [Exploration de données](#exploration-de-données)
+  - [Exploration de Données](#exploration-données)
   - [Analyse Prédective](#analyse-prédective)
 - [Machine Learning](#machine-learning)
 ### Description du projet
@@ -64,7 +63,7 @@
 
 ### Analyse Statistiques
   - notre problématique est de suivre l'évolution du marché des jeux vidéos au courd de l'année 1994 et 2021 
-  ### Analyse Descriptive
+  ### Exploration Données
   #### Nombre de jeux vendus par Plateforme
   ![image](https://user-images.githubusercontent.com/78117993/167117747-cc4d99a2-9c04-4968-8aae-5d913e561117.png)
   - la majorité des jeux sont joué en PS2 
@@ -149,6 +148,5 @@
   ```
   ![image](https://user-images.githubusercontent.com/78117993/167125038-c9454d46-1a7d-4ad8-93d6-43683f6cc47e.png)
   - Nintendo est le top éditeur au monde qui réalise un total de 1.75 Billions de dollars
-  ### Exploration de données
   ### Analyse Prédective
 ### Machine Learning
